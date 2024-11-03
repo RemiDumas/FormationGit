@@ -13,6 +13,20 @@ i Defaulting to 'https' Git protocol
 [1] "https"
 
 ### Configurer un token
+https://stackoverflow.com/questions/68191392/password-authentication-is-temporarily-disabled-as-part-of-a-brownout-please-us/68199261#68199261
+Here is a simple solution:
+Go to GitHub → Settings → Developer settings → Personal access tokens. Regenerate your token and copy it.
+On any of your local repositories, when git push, enter your username, and the password is the generated token
+Instead of manually entering your token for every HTTPS Git operation, you can cache your token with a Git client.
+
+In a terminal, enter the following:
+# Set Git to use the credential memory cache
+git config --global credential.helper cache
+To change the default password cache timeout, enter the following:
+# Set the cache to timeout after 1 hour (setting is in seconds)
+git config --global credential.helper 'cache --timeout=3600'
+
+
 
 Aller sur Github: 
 > usethis::gh_token_help()
